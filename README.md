@@ -11,7 +11,8 @@ The actual Json-LD schemas are in the docker/schemas sub directory.
 
 ## How to run the image ##
 
-```cd docker
+```
+cd docker
 docker build -t bioterms-docker-image .
 docker run -dit -p 8889:80 -v "$PWD":/usr/local/apache2/htdocs/ bioterms-docker-image:latest
 ```
