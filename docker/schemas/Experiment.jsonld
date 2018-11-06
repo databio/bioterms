@@ -1,0 +1,259 @@
+{
+	"@context": {
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+		"xsd": "http://www.w3.org/2001/XMLSchema#"
+	},
+	"@graph": [
+		{
+			"@id": "http://bioterms.org/schemas/Segment",
+			"@type": "rdfs:Class",
+			"rdfs:comment": "Basic definition of a dna segment",
+			"rdfs:label": "Segment",
+			"rdfs:SubclassOf": [
+				{
+					"@id": "https://schema.org/Intangible"
+				},
+				{
+					"@id": "https://schema.org/ListItem"
+				}
+			]
+		},
+		{
+			"@id": "http://bioterms.org/schemas/segmentStart",
+			"@type": "rdf:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Segment"
+			},
+			"https://schema.org/rangeIncludes": [
+				{
+					"@id": "https://schema.org/Number"
+				},
+				{
+					"@id": "https://schema.org/Text"
+				}
+			],
+			"rdfs:comment": "Start of a segment",
+			"rdfs:label": "segmentStart"
+		},
+		{	
+			"@id": "http://bioterms.org/schemas/segmentEnd",
+			"@type": "rdf:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Segment"
+			},
+			"https://schema.org/rangeIncludes": [
+				{
+					"@id": "https://schema.org/Number"
+				},
+				{
+					"@id": "https://schema.org/Text"
+				}
+			],
+			"rdfs:comment": "End of a segment",
+			"rdfs:label": "segmentEnd"
+		},
+		{	
+			"@id": "http://bioterms.org/schemas/segmentChr",
+			"@type": "rdf:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Segment"
+			},
+			"https://schema.org/rangeIncludes": [
+				{
+					"@id": "https://schema.org/Number"
+				},
+				{
+					"@id": "https://schema.org/Text"
+				}
+			],
+			"rdfs:comment": "Chromosome number",
+			"rdfs:label": "segmentChr"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/Annotation",
+			"@type": "rdfs:Class",
+			"rdfs:comment": "Basic definition of an annotation associated with a segment",
+			"rdfs:label": "Annotation",
+			"rdfs:SubclassOf":{
+					"@id": "https://schema.org/Intangible"
+				}
+		},
+		{
+			"@id": "http://bioterms.org/schemas/annotationValue",
+			"@type": "rdf:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Annotation"
+			},
+			"https://schema.org/rangeIncludes": [
+				{
+					"@id": "https://schema.org/Number"
+				},
+				{
+					"@id": "https://schema.org/Text"
+				}
+			],
+			"rdfs:comment": "Annotation value associated with a segment",
+			"rdfs:label": "annotationValue"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/annotationSegment",
+			"@type": "rdf:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Annotation"
+			},
+			"https://schema.org/rangeIncludes":
+				{
+					"@id": "http://bioterms.org/schemas/Segment"
+				},
+			"rdfs:comment": "Segment associated with the annotation",
+			"rdfs:label": "annotationSegment"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/annotationList",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes":
+				{
+					"@id": "http://bioterms.org/schemas/Experiment"
+				},
+			"https://schema.org/rangeIncludes": [
+			 	{
+					"@id": "https://schema.org/ItemList"
+				},
+				{
+					"@id": "http://bioterms.org/schemas/Annotation"
+				}
+			],
+			"rdfs:comment": "A list of annotations.",
+			"rdfs:label": "annotationList"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/Segmentation",
+			"@type": "rdfs:Class",
+			"rdfs:comment": "A provider for a list segments",
+			"rdfs:label": "Segmentation",
+			"rdfs:subClassOf": {
+				"@id": "https://schema.org/Intangible"
+			}
+		},
+		{
+			"@id": "http://bioterms.org/schemas/segmentList",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+					"@id": "http://bioterms.org/schemas/Segmentation"
+				},
+			"https://schema.org/rangeIncludes": [
+				{
+					"@id": "https://schema.org/ItemList"
+				},
+				{
+					"@id": "http://bioterms.org/schemas/Segment"
+				}
+			],
+			"rdfs:comment": "A list of segments making up a segmentation.",
+			"rdfs:label": "segmentList"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/segmentationName",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes":{
+					"@id": "http://bioterms.org/schemas/Segmentation"
+				},
+			"https://schema.org/rangeIncludes": {
+					"@id": "https://schema.org/Text"
+				},
+			"rdfs:comment": "Name of a segmentation",
+			"rdfs:label": "segmentationName"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/Study",
+			"@type": "rdfs:Class",
+			"rdfs:comment": "A container context for a Study",
+			"rdfs:label": "Genome study",
+			"rdfs:subClassOf": {
+				"@id": "https://schema.org/Intangible"
+			}
+		},
+		{
+			"@id": "http://bioterms.org/schemas/studyAuthor",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Study"
+			},
+			"https://schema.org/rangeIncludes": {
+				"@id": "https://schema.org/Person"
+			},
+			"rdfs:comment": "Author of a genomic study",
+			"rdfs:label": "studyAuthor"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/studyManuscript",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Study"
+			},
+			"https://schema.org/rangeIncludes": {
+				"@id": "https://schema.org/CreativeWork"
+			},
+			"rdfs:comment": "Manuscript associated with a genomic study",
+			"rdfs:label": "studyAuthor"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/studyExperiment",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Study"
+			},
+			"https://schema.org/rangeIncludes": {
+				"@id": "https://schema.org/Experiment"
+			},
+			"rdfs:comment": "Experiment associated with a genomic study",
+			"rdfs:label": "studyExperiment"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/Experiment",
+			"@type": "rdfs:Class",
+			"rdfs:comment": "A container context for an Experiment",
+			"rdfs:label": "Genome experfiment",
+			"rdfs:subClassOf": {
+				"@id": "https://schema.org/Intangible"
+			}
+		},
+		{
+			"@id": "http://bioterms.org/schemas/experimentStudy",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Experiment"
+			},
+			"https://schema.org/rangeIncludes": {
+				"@id": "https://schema.org/Text"
+			},
+			"rdfs:comment": "Study associated with an experiment",
+			"rdfs:label": "experimentStudy"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/experimentProtocol",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Experiment"
+			},
+			"https://schema.org/rangeIncludes": {
+				"@id": "https://schema.org/Text"
+			},
+			"rdfs:comment": "Protocol associated with an experiment",
+			"rdfs:label": "experimentProtocol"
+		},
+		{
+			"@id": "http://bioterms.org/schemas/experimentCellType",
+			"@type": "rdfs:Property",
+			"https://schema.org/domainIncludes": {
+				"@id": "http://bioterms.org/schemas/Experiment"
+			},
+			"https://schema.org/rangeIncludes": {
+				"@id": "https://schema.org/Text"
+			},
+			"rdfs:comment": "Cell type associated with an experiment",
+			"rdfs:label": "experimentCellType"
+		}
+	]
+}
