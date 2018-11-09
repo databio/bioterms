@@ -9,12 +9,16 @@ If you decide to build the Docker image and serve the contents as a Docker conta
 
 The actual Json-LD schemas are in the docker/schemas sub directory.
 
+## How to change/add html/js/css and other contents ##
+
+Add whatever it is you want to add to the docker/contents/ sub-dir. The contents of this directory get copied into /usr/local/apache2/htdocs in the container.
+
 ## How to run the image ##
 
 ```
 cd docker
 docker build -t bioterms-docker-image .
-docker run -dit -p 8889:80 -v "$PWD":/usr/local/apache2/htdocs/ bioterms-docker-image:latest
+docker run -dit -p 8889:80 bioterms-docker-image:latest
 ```
 
 The above will expose port 8889 (which is what we use to serve the contents on). In our setup we use Traefik (https://traefik.io/) to run multiple domains on the same machine (episb.org, bioterms.org etc.), all as Docker images. Traefik will take care of all the port/DNS forwarding in this scenario.
