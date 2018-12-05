@@ -1,0 +1,23 @@
+language: bash
+
+services:
+  - docker
+
+before_install:
+  - sudo pip install --upgrade pip
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - echo $DOCKER_PASSWORD | docker login -u "$DOCKER_USERNAME" --password-stdin 
+
+install:
+    cd docker/;
+    docker build --no-cache -t databio/bioterms . || exit 1;
+    docker push databio/bioterms:latest || exit 1;
+    aws sqs send-message --queue-url 'https://queue.amazonaws.com/474683445819/bioterms-updates' --message-body $TRAVIS_BRANCH || exit 1;
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+    recipients:
+    - nmagee@virginia.edu
