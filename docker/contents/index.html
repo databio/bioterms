@@ -48,11 +48,14 @@
     <!-- Begin page content -->
     <main role="main" class="container">
       <h1 class="mt-5">Welcome to BioTerms.org</h1>
-      <p class="lead" style="font-style:italic;">BioTerms.org is a community initiative to define and promote schemas for structured biological data.
-        Such a collection of schemas enables researchers to more easily share datasets with a common syntax and structure.
-      <p class="lead">Schemas are constructed in JSON-LD (JavaScript Object Notation for Linked Data) that define unique
-        elements of assets within biological research and connect them to standardized data schemas from <a href="https://schema.org/" target="_new">SCHEMA.ORG</a>.</p>
-      <p class="lead">For example, here is a portion of the schema defining the start of a segment:</p>
+      <p class="lead" style="font-style:italic;">BioTerms.org is a community initiative to define and promote schemas for structured epigenome annotation data. These schemas enable researchers to share epigenome datasets through a common vocabulary and structure.
+
+      <p class="lead">BioTerms schemas are built in JSON-LD (JavaScript Object Notation for Linked Data) and are based on generic terms from <a href="https://schema.org/" target="_new">schema.org</a>. It is also heavily based on the <a href="http://www.sequenceontology.org/">Sequence Ontology</a> for epigenome-specific entities and relationships. BioTerms thereby effectively links biological ontologies to generic schemas.</p>
+
+      Furthermore, BioThings provides permanent, static URLs that can be used to define
+
+
+      <p class="lead">For example, here is a portion of the schema defining the start of a genome segment:</p>
     <pre>
     {
       "@id": "http://bioterms.org/schemas/segmentStart",
