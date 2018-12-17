@@ -18,10 +18,16 @@ Add whatever it is you want to add to the docker/contents/ sub-dir. The contents
 ```
 cd docker
 docker build -t bioterms-docker-image .
-docker run -dit -p 8889:80 bioterms-docker-image:latest
+docker run -dit --name bioterms -p 8889:80 bioterms-docker-image:latest
 ```
 
 The above will expose port 8889 (which is what we use to serve the contents on). In our setup we use Traefik (https://traefik.io/) to run multiple domains on the same machine (episb.org, bioterms.org etc.), all as Docker images. Traefik will take care of all the port/DNS forwarding in this scenario.
+
+You can then stop the container with:
+
+```
+docker stop bioterms
+```
 
 ## How to serve the contents without a Docker image ##
 

@@ -44,22 +44,33 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-      <h1 class="mt-5">Welcome to BioTerms.org</h1>
+      <h1 class="mt-5">BioTerms Documentation</h1>
+       <p class="lead">BioTerms documentation will go here.</p>
 
-      <p class="lead">BioTerms.org is a community initiative to define and promote schemas for structured epigenome annotation data. BioTerms defines entities and relationships that are specific to epigenome analysis. These schema components are the fundamental definitions required for the interoperable analysis envisioned by the <a href="http://episb.org">Epigenome Switchboard</a> project. </p>
+    
 
-      <p class="lead">To do this, BioTerms links several specialized vocabularies to create a single source for terms related to analysis of epigenome data. BioTerms connects these resources via a formal schema in <a href="https://json-ld.org/">JSON-LD</a> (JavaScript Object Notation for Linked Data), thereby providing permanent, static URLs that can be used to make epigenome data interoperable. These schemas enable researchers to share epigenome datasets through a common vocabulary and structure. Some of the key resources that are integrated by BioTerms are:</p>
+      <p class="lead">For example, here is a portion of the schema defining the start of a genome segment:</p>
+    <pre>
+    {
+      "@id": "http://bioterms.org/schemas/segmentStart",
+      "@type": "rdf:Property",
+      "https://schema.org/domainIncludes": {
+        "@id": "http://bioterms.org/schemas/Segment"
+      },
+      "https://schema.org/rangeIncludes": [
+        {
+          "@id": "https://schema.org/Number"
+        },
+        {
+          "@id": "https://schema.org/Text"
+        }
+      ],
+      "rdfs:comment": "Start of a segment",
+      "rdfs:label": "segmentStart"
+    }
+    </pre>
 
-      <ul>
-      <li><a href="https://schema.org/" target="_new">schema.org</a> - Provides generic term definitions (<i>e.g.</i> <a href="https://schema.org/Number">Number</a>, <a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/ListItem">ListItem</a>)</li>
-      <li><a href="http://www.sequenceontology.org/">Sequence Ontology</a> - Terms and relationships for genome sequence information (<i>e.g.</i> <a href="http://www.sequenceontology.org/browser/current_svn/term/SO:0000001">region</a>, <a href="http://www.sequenceontology.org/browser/current_svn/term/SO:0000110">sequence_feature</a>)</li>
-      <li><a href="https://web.expasy.org/cellosaurus/" target="_new">Cellosaurus</a> - Controlled vocabulary for cell type names (<i>e.g.</i> <a href="https://web.expasy.org/cellosaurus/CVCL_0004">K-562</a>, <a href="https://web.expasy.org/cellosaurus/CVCL_0027">Hep-G2</a>)</li>
-      </ul>
 
-      <p class="lead">By building on these controlled vocabularies, BioTerms not only makes epigenome analysis more interoperable for the epigenome switchboard, but also allows data that follows this schema to be used for other analyses that make use of subsets of these shared vocabularies.</p>
-
-      <p class="lead">To explore BioTerms, you can view the <a href="/documentation.html">Documentation</a> or browse the <a href="/schemas/">BioTerms Schemas</a> themselves</p>.
-      
     </main>
 
     <footer class="footer">
