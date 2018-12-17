@@ -1,19 +1,18 @@
-## Purpose ##
+# BioTerms
 
-This repo contains the Json-LD schemas served by bioterms.org. It also includes a Dockerfile to create a Docker image running Apache2 web server serving these schemas.
+BioTerms.org is a community initiative to define and promote schemas for structured epigenome annotation data. More details can be found at [bioterms.org](http://bioterms.org).
 
+## Contents
 
-## Contents ##
+This repo contains the JSON-LD schemas served by bioterms.org. It also includes a Dockerfile to create a Docker image running Apache2 web server serving these schemas. If you decide to build the Docker image and serve the contents as a Docker container, please edit the `httpd.conf` file found in the `docker/apache_conf` sub directory -- make sure that the port and DNS name are correct, as the Apache web server is set up to use virtual hosts to run the website and serve the schemas.
 
-If you decide to build the Docker image and serve the contents as a Docker container, please edit the httpd.conf file found in the docker/apache_conf sub directory - make sure that the port and DNS name are correct, as the Apache web server is set up to use virtual hosts to run the website and serve the schemas.
+The actual JSON-LD schemas are in the `docker/schemas` subdirectory.
 
-The actual Json-LD schemas are in the docker/schemas sub directory.
+## How to change/add html/js/css and other contents
 
-## How to change/add html/js/css and other contents ##
+Add whatever it is you want to add to the `docker/contents/` sub-dir. The contents of this directory get copied into `/usr/local/apache2/htdocs` in the container.
 
-Add whatever it is you want to add to the docker/contents/ sub-dir. The contents of this directory get copied into /usr/local/apache2/htdocs in the container.
-
-## How to run the image ##
+## How to run the image
 
 ```
 cd docker
@@ -29,6 +28,6 @@ You can then stop the container with:
 docker stop bioterms
 ```
 
-## How to serve the contents without a Docker image ##
+## How to serve the contents without a Docker image
 
 If you have a dedicated machine to run Apache and want to serve the contents, make use to use the included httpd.conf file - copy it into the appropriate Apache conf directory (e.g. /etc/httpd/conf or /usr/local/apache2/conf) and make sure to edit the file to reflect the correct DocumentRoot and ServerRoot directories. The schemas/ sub directory and its contents should be copied into /var/www/html (or /usr/local/apache2/htdocs, or wherever DocumentRoot is set to point). After starting Apache, it should serve all the schemas properly. Do not forget to comment out the VirtualHost section or change it to make it appropriate for your situation.
