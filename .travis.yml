@@ -11,10 +11,10 @@ before_install:
 
 install:
     cd docker/;
-    docker build --no-cache -t databio/bioterms . || exit 1;
+    docker build --no-cache -t databio/bioterms:latest . || exit 1;
     docker push databio/bioterms:latest || exit 1;
     aws sqs send-message --queue-url 'https://queue.amazonaws.com/474683445819/bioterms-updates' --message-body $TRAVIS_BRANCH || exit 1;
-    aws sqs send-message --queue-url 'https://queue.amazonaws.com/474683445819/bioterms-updates-dcos' --message-body $TRAVIS_BRANCH || exit 1;
+    aws sqs send-message --queue-url 'https://queue.amazonaws.com/474683445819/dcos-refresh' --message-body 'shefflab/bioterms' || exit 1;
 
 notifications:
   email:
